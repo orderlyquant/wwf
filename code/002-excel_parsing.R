@@ -48,7 +48,7 @@ expense_tbl
 
 
 # Read expenses from each tab
-expense_tbl <- expense_tbl %>% 
+expense_tbl <- expense_tbl |> 
   mutate(
     data = map2(path, sheet, read_excel)
   )
@@ -67,12 +67,12 @@ expense_tbl
 
 
 # Plot simple summary of total expenses per month
-expense_tbl %>% 
-  unnest(data) %>% 
-  group_by(report_date) %>% 
+expense_tbl |> 
+  unnest(data) |> 
+  group_by(report_date) |> 
   summarize(
     amount = sum(amount)
-  ) %>% 
+  ) |> 
   ggplot(aes(x = report_date, y = amount)) +
   labs(
     title = "Monthly Expenses",

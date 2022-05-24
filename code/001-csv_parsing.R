@@ -38,7 +38,7 @@ expense_tbl
 
 
 # Read individual expense reports
-expense_tbl <- expense_tbl %>% 
+expense_tbl <- expense_tbl |> 
   mutate(data = map(path, read.csv))
 
 
@@ -48,11 +48,11 @@ expense_tbl
 
 # Add convenience columns: 1) identifying reports and
 # 2) adding date column to improve plotting
-expense_tbl <- expense_tbl %>% 
+expense_tbl <- expense_tbl |> 
   mutate(
     report = str_extract(path, "[0-9]{4}-[0-9]{2}"),
     report_date = as.Date(paste0(report, "-01"))
-  ) %>% 
+  ) |> 
   select(report, report_date, data, path)
 
 
@@ -61,12 +61,12 @@ expense_tbl
 
 
 # Plot simple summary of total expenses per month
-expense_tbl %>% 
-  unnest(data) %>% 
-  group_by(report_date) %>% 
+expense_tbl |> 
+  unnest(data) |> 
+  group_by(report_date) |> 
   summarize(
     amount = sum(amount)
-  ) %>% 
+  ) |> 
   ggplot(aes(x = report_date, y = amount)) +
   labs(
     title = "Monthly Expenses",
