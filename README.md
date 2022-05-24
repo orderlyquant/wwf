@@ -12,7 +12,8 @@ Excel (may know VBA) making the transition to R.
 
 Topics covered:
 
-- simple processing of repetitive files
+- simple processing of csv files
+- processing of multi-worksheet excel files
 
 
 ## TODO
