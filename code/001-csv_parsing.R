@@ -1,8 +1,15 @@
-# code/001-simple_parsing
+# code/001-csv_parsing
 #
 # Notes:
 #
-# This script steps through a 
+# This script demonstrates how to parse
+# a directory of csv files into a well-ordered
+# tibble ready for use in tidyverse workflows.
+#
+# features: 
+#  - map,
+#  - list columns
+#  - unnest
 
 
 
