@@ -32,9 +32,18 @@ expense_tbl <- tibble(
 )
 
 
+# View data structure
+expense_tbl
+
+
+
 # Read individual expense reports
 expense_tbl <- expense_tbl %>% 
   mutate(data = map(path, read.csv))
+
+
+# View data structure
+expense_tbl
 
 
 # Add convenience columns: 1) identifying reports and
