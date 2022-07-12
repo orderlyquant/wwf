@@ -54,6 +54,10 @@ expense_tbl <- expense_tbl |>
   )
 
 
+# View data structure
+expense_tbl
+
+
 # Add date column to improve plotting
 expense_tbl <- expense_tbl |> 
   mutate(
